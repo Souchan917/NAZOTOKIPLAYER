@@ -90,3 +90,11 @@ function stopStageAudio(audioElement) {
         fadeOutAudio(audioElement); // フェードアウト
     }
 }
+
+
+import { startGame1 } from './game1.js';
+import { startGame2 } from './game2.js';
+
+// スタートボタンの設定
+document.getElementById('startButton1').addEventListener('click', startGame1);
+document.getElementById('startButton2').addEventListener('click', startGame2);
