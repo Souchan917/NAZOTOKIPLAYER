@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NAZOTOKI PALYER</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <!-- Three.jsの背景用のCanvas -->
+    <canvas id="backgroundCanvas"></canvas>
+
+    <!-- ゲームのメインコンテンツ -->
+    <div class="game-container">
+        <!-- ジャケット画像とタイトルの表示エリア -->
+        <div class="stage-display">
+            <div class="stage-jacket" id="stage1-jacket">
+                <img src="/images/stage1.jpg" alt="チュートリアルステージ">
+                <h2>チュートリアルステージ</h2>
+                <audio id="audio1" src="/audio/01-Couper le vent.mp3"></audio>
+            </div>
+            <div class="stage-jacket" id="stage2-jacket">
+                <img src="/images/stage2.jpg" alt="ステージ2">
+                <h2>ステージ2</h2>
+                <audio id="audio2" src="/audio/02-Sesquifractal.mp3"></audio>
+            </div>
+            <div class="stage-jacket" id="stage3-jacket">
+                <img src="/images/stage3.jpg" alt="ステージ3">
+                <h2>ステージ3</h2>
+                <audio id="audio3" src="/audio/03-Refreqt.mp3"></audio>
+            </div>
+            <div class="stage-jacket" id="stage4-jacket">
+                <img src="/images/stage4.jpg" alt="ステージ4">
+                <h2>ステージ4</h2>
+                <audio id="audio4" src="/audio/04-Madoromi Chronoscope.mp3"></audio>
+            </div>
+            <div class="stage-jacket" id="stage5-jacket">
+                <img src="/images/stage5.jpg" alt="ステージ5">
+                <h2>ステージ5</h2>
+                <audio id="audio5" src="/audio/05-Flip Up.mp3"></audio>
+            </div>
+        </div>
+        
+        <!-- ナビゲーションボタン -->
+        <div class="controls">
+            <button id="prevButton">前へ</button>
+            <button id="nextButton">次へ</button>
+        </div>
+        <!-- スタートボタン -->
+        <button id="startButton">スタート</button>
+    </div>
+
+    <!-- Three.jsと関連スクリプトの読み込み -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="/js/background.js"></script>
+    <script src="/js/script.js"></script>
+</body>
+</html>
