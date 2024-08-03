@@ -102,12 +102,12 @@ function setBackgroundForStage(stageIndex) {
             material = new THREE.MeshStandardMaterial({ color: 0x3333ff });
             const stackedCube1 = new THREE.Mesh(geometry, material);
             stackedCube1.position.set(10, 1.5, 0);
-            stackedCube1.rotation.z = Math.PI / 8;
+            stackedCube1.rotation.y = Math.PI / 8;
             stackedCube1.castShadow = true;
 
             const stackedCube2 = new THREE.Mesh(geometry, material);
             stackedCube2.position.set(10, 4.5, 0);
-            stackedCube2.rotation.z = -Math.PI / 8;
+            stackedCube2.rotation.y = -Math.PI / 8;
             stackedCube2.castShadow = true;
 
             scene.add(stackedCube1);
