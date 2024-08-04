@@ -37,6 +37,7 @@ body, html {
     width: 60%;
     height: auto;
     overflow: hidden;
+    margin-bottom: 20px; /* スタートボタンとの間隔を調整 */
 }
 
 .stage-jacket {
@@ -54,11 +55,10 @@ body, html {
     object-fit: cover;
     object-position: center;
     aspect-ratio: 1 / 1; /* 正方形の比率を維持 */
-    max-width: 500px; /* 任意の最大幅 */
+    max-width: 300px; /* 任意の最大幅 */
     border: 2px solid #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
-
 
 .stage-jacket.active {
     display: flex; /* アクティブなジャケットのみ表示 */
@@ -74,6 +74,15 @@ body, html {
     margin: 0 10px;
     font-size: 16px;
     cursor: pointer;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.controls button:hover {
+    background-color: #0056b3;
 }
 
 /* スタートボタンのスタイル */
@@ -91,4 +100,26 @@ body, html {
 
 #startButton:hover {
     background-color: #45a049;
+}
+
+/* ステージコンテンツのスタイル */
+.game-stage {
+    display: none; /* デフォルトで非表示 */
+    width: 80%;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.game-stage h2 {
+    margin-top: 0;
+}
+
+.game-stage p {
+    font-size: 1.1em;
+    line-height: 1.5;
 }

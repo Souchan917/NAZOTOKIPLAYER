@@ -28,6 +28,16 @@ document.getElementById('prevButton').addEventListener('click', () => {
     changeStage(-1);
 });
 
+// スタートボタン
+document.getElementById('startButton').addEventListener('click', () => {
+    // game-containerを非表示にして重くならないようにする
+    document.querySelector('.game-container').style.display = 'none';
+    
+    // 表示するステージのコンテンツを選択
+    const stageContentId = `stage${currentStageIndex + 1}-content`;
+    document.getElementById(stageContentId).style.display = 'block';
+});
+
 function changeStage(direction) {
     // 現在のステージを非表示
     jackets[currentStageIndex].classList.remove('active');
@@ -90,4 +100,3 @@ function stopStageAudio(audioElement) {
         fadeOutAudio(audioElement); // フェードアウト
     }
 }
-
