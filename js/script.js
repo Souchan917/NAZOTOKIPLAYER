@@ -7,8 +7,8 @@ let currentAudioElement = null; // 現在のオーディオ要素を保持
 const trackList = [
     "01-Couper le vent",
     "02-Sesquifractal",
-    "03-Refreqt",
-    "04-Madoromi Chronoscope",
+    "03-Madoromi Chronoscope",
+    "04-Refreqt",
     "05-Flip Up"
 ];
 
