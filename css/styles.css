@@ -123,3 +123,83 @@ body, html {
     font-size: 1.1em;
     line-height: 1.5;
 }
+
+
+/* ステージ1のゲームコンテンツスタイル */
+.game-stage {
+    display: none; /* デフォルトで非表示 */
+    width: 80%;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.game-stage.active {
+    display: block;
+    opacity: 1;
+    transform: scale(1);
+}
+
+.stage1-header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.stage1-description {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.stage1-instructions {
+    background-color: #f0f0f0;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.stage1-instructions h3 {
+    margin-top: 0;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.stage1-instructions ol {
+    margin: 0;
+    padding: 0 20px;
+    text-align: left;
+}
+
+.puzzle-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.puzzle-grid div {
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    color: #555;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.puzzle-grid div:hover {
+    background-color: #d4d4d4;
+}
