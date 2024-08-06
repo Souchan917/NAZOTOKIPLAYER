@@ -36,7 +36,53 @@ document.getElementById('startButton').addEventListener('click', () => {
     // 表示するステージのコンテンツを選択
     const stageContentId = `stage${currentStageIndex + 1}-content`;
     document.getElementById(stageContentId).style.display = 'block';
+
+    // ステージごとの背景とゲームロジックを読み込み
+    switch (currentStageIndex) {
+        case 0:
+            import('./backgroundStage1.js').then(module => {
+                module.setTutorialBackground(scene);
+            });
+            import('./gameLogicStage1.js').then(module => {
+                module.initTutorialGame();
+            });
+            break;
+        case 1:
+            import('./backgroundStage2.js').then(module => {
+                module.setStage1Background(scene);
+            });
+            import('./gameLogicStage2.js').then(module => {
+                module.initStage1Game();
+            });
+            break;
+        case 2:
+            import('./backgroundStage3.js').then(module => {
+                module.setStage2Background(scene);
+            });
+            import('./gameLogicStage3.js').then(module => {
+                module.initStage2Game();
+            });
+            break;
+        case 3:
+            import('./backgroundStage4.js').then(module => {
+                module.setStage3Background(scene);
+            });
+            import('./gameLogicStage4.js').then(module => {
+                module.initStage3Game();
+            });
+            break;
+        case 4:
+            import('./backgroundStage5.js').then(module => {
+                module.setStage4Background(scene);
+            });
+            import('./gameLogicStage5.js').then(module => {
+                module.initStage4Game();
+            });
+            break;
+        // 他のステージも同様に設定
+    }
 });
+
 
 function changeStage(direction) {
     // 現在のステージを非表示
