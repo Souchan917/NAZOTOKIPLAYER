@@ -74,19 +74,46 @@ function setBackgroundForStage(stageIndex) {
         case 0:
             // 背景の白色
             scene.background = new THREE.Color(0xf0f0f0);
-
+        
             // 球形ワイヤーフレームの作成
             geometry = new THREE.SphereGeometry(5, 32, 32);
             material = new THREE.MeshBasicMaterial({ color: 0x8AB4EB, wireframe: true });
             const wireframeSphere = new THREE.Mesh(geometry, material);
-
+        
             // 球の位置を調整
             wireframeSphere.position.set(0, 0, -20);
             scene.add(wireframeSphere);
             currentBackground = wireframeSphere;
-            break;
+        
+            // 立方体1の作成
+            const box1Geometry = new THREE.BoxGeometry(2, 2, 2);
+            const box1Material = new THREE.MeshBasicMaterial({ color: 0xff0000, wireframe: true });
+            const box1 = new THREE.Mesh(box1Geometry, box1Material);
+            box1.position.set(-5, 0, -15);
 
-        // 他のステージの設定...
+            // 回転の設定（ラジアンで指定）
+            box1.rotation.set(Math.PI / 4, Math.PI / 4, 0);
+
+            scene.add(box1);
+
+        
+            // 立方体2の作成
+            const box2Geometry = new THREE.BoxGeometry(2, 2, 2);
+            const box2Material = new THREE.MeshBasicMaterial({ color: 0x00ff00, wireframe: true });
+            const box2 = new THREE.Mesh(box2Geometry, box2Material);
+            box2.position.set(0, 5, -10);
+            scene.add(box2);
+        
+            // 立方体3の作成
+            const box3Geometry = new THREE.BoxGeometry(2, 2, 2);
+            const box3Material = new THREE.MeshBasicMaterial({ color: 0x0000ff, wireframe: true });
+            const box3 = new THREE.Mesh(box3Geometry, box3Material);
+            box3.position.set(5, -5, -20);
+            scene.add(box3);
+        
+            break;
+        
+
         case 1:
             // 背景の白色
             scene.background = new THREE.Color(0xf0f0f0);
@@ -101,10 +128,8 @@ function setBackgroundForStage(stageIndex) {
             scene.add(wireframeSphere1);
             currentBackground = wireframeSphere1;
             break;
-
     }
 }
-
 
 function animate() {
     requestAnimationFrame(animate);
@@ -117,6 +142,13 @@ function animate() {
     // シーンのレンダリング
     renderer.render(scene, camera);
 }
+
+// ウィンドウのリサイズに対応
+window.addEventListener('resize', () => {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+});
 
 // ページ読み込み時にThree.jsを初期化
 window.addEventListener('load', initThreeJS);
