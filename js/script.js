@@ -55,7 +55,11 @@ function changeStage(direction) {
     // 次のステージを表示
     jackets[currentStageIndex].classList.add('active');
     playStageAudio(trackList[currentStageIndex]);
+    
+    // 背景の更新
+    setBackgroundForStage(currentStageIndex);
 }
+
 
 function playStageAudio(trackName) {
     const trackId = `audio${trackList.indexOf(trackName) + 1}`;

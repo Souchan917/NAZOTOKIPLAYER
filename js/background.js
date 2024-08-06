@@ -9,8 +9,8 @@ function initThreeJS() {
 
     // カメラの作成
     camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
-    camera.position.set(0, 5, 20);
-    camera.lookAt(0, 0, -20);
+    camera.position.set(0, 0, 10);
+    camera.lookAt(0, 0, 0);
 
     // レンダラーの作成
     renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('backgroundCanvas'), alpha: true, antialias: true });
@@ -64,64 +64,47 @@ function setBackgroundForStage(stageIndex) {
     // 既存の背景オブジェクトを削除
     if (currentBackground) {
         scene.remove(currentBackground);
+        currentBackground.geometry.dispose();
+        currentBackground.material.dispose();
     }
 
     // ステージごとの背景設定
     let geometry, material;
     switch (stageIndex) {
         case 0:
-            // 地面の作成
-            const groundTexture = new THREE.TextureLoader().load('textures/ground.jpg');
-            groundTexture.wrapS = groundTexture.wrapT = THREE.RepeatWrapping;
-            groundTexture.repeat.set(20, 20);
+            // 背景の白色
+            scene.background = new THREE.Color(0xf0f0f0);
 
-            const groundMaterial = new THREE.MeshStandardMaterial({ map: groundTexture });
-            const groundGeometry = new THREE.PlaneGeometry(100, 100);
-            const ground = new THREE.Mesh(groundGeometry, groundMaterial);
-            ground.rotation.x = -Math.PI / 2;
-            ground.receiveShadow = true;
-            scene.add(ground);
+            // 球形ワイヤーフレームの作成
+            geometry = new THREE.SphereGeometry(5, 32, 32);
+            material = new THREE.MeshBasicMaterial({ color: 0x8AB4EB, wireframe: true });
+            const wireframeSphere = new THREE.Mesh(geometry, material);
 
-            // 背景の壁の作成
-            const wallGeometry = new THREE.PlaneGeometry(100, 30);
-            const wallMaterial = new THREE.MeshStandardMaterial({ color: 0x808080 });
-            const wall = new THREE.Mesh(wallGeometry, wallMaterial);
-            wall.position.set(0, 15, -50);
-            scene.add(wall);
-
-            // 左の大きな立方体
-            geometry = new THREE.BoxGeometry(10, 10, 10);
-            material = new THREE.MeshStandardMaterial({ color: 0xff6347 });
-            const bigCube = new THREE.Mesh(geometry, material);
-            bigCube.position.set(-20, 2.5, 0);
-            bigCube.castShadow = true;
-            scene.add(bigCube);
-
-            // 右の積み重なった立方体
-            geometry = new THREE.BoxGeometry(3, 3, 3);
-            material = new THREE.MeshStandardMaterial({ color: 0x3333ff });
-            const stackedCube1 = new THREE.Mesh(geometry, material);
-            stackedCube1.position.set(10, 1.5, 0);
-            stackedCube1.rotation.y = Math.PI / 8;
-            stackedCube1.castShadow = true;
-
-            const stackedCube2 = new THREE.Mesh(geometry, material);
-            stackedCube2.position.set(10, 4.5, 0);
-            stackedCube2.rotation.y = -Math.PI / 8;
-            stackedCube2.castShadow = true;
-
-            scene.add(stackedCube1);
-            scene.add(stackedCube2);
-
+            // 球の位置を調整
+            wireframeSphere.position.set(0, 0, -20);
+            scene.add(wireframeSphere);
+            currentBackground = wireframeSphere;
             break;
 
+        // 他のステージの設定...
         case 1:
-            // 他のステージの設定を追加可能
+            // 背景の白色
+            scene.background = new THREE.Color(0xf0f0f0);
+
+            // 球形ワイヤーフレームの作成
+            geometry = new THREE.SphereGeometry(5, 32, 32);
+            material = new THREE.MeshBasicMaterial({ color: 0xB92212, wireframe: true });
+            const wireframeSphere1 = new THREE.Mesh(geometry, material);
+
+            // 球の位置を調整
+            wireframeSphere1.position.set(0, 0, -20);
+            scene.add(wireframeSphere1);
+            currentBackground = wireframeSphere1;
             break;
-        default:
-            // デフォルト設定
+
     }
 }
+
 
 function animate() {
     requestAnimationFrame(animate);

@@ -55,7 +55,7 @@ body, html {
     object-fit: cover;
     object-position: center;
     aspect-ratio: 1 / 1; /* 正方形の比率を維持 */
-    max-width: 300px; /* 任意の最大幅 */
+    max-width: 100px; /* 任意の最大幅 */
     border: 2px solid #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
