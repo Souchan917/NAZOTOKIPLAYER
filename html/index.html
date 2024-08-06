@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NAZOTOKI PLAYER</title>
     <link rel="stylesheet" href="/css/styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 <body>
    
@@ -51,53 +53,15 @@
         <button id="startButton">スタート</button>
     </div>
 
-    <!-- ステージ1のゲームコンテンツ -->
-    <!-- ステージ1のゲームコンテンツ -->
-    <div class="game-stage" id="stage1-content" style="display: none;">
-        <canvas id="stage1Canvas"></canvas>
-        <div class="stage1-header">
-            <h2>Stage 1: The Enchanted Melody</h2>
-        </div>
-        <div class="stage1-description">
-            <p>In this stage, players must find the hidden notes...</p>
-        </div>
-        <button class="backButton" onclick="goBackToHome()">ホームに戻る</button>
-    </div>
-
-    <!-- ステージ2のゲームコンテンツ -->
-    <div class="game-stage" id="stage2-content" style="display: none;">
-        <canvas id="stage2Canvas"></canvas>
-        <div class="stage2-header">
-            <h2>ステージ2のゲーム</h2>
-            <p>ここにステージ2のゲーム内容を追加</p>
-        </div>
-        <button class="backButton" onclick="goBackToHome()">ホームに戻る</button>
-    </div>
-
-    <!-- 他のステージも同様に設定 -->
-
-
-    <!-- ステージ3のゲームコンテンツ -->
-    <div class="game-stage" id="stage3-content" style="display: none;">
-        <h2>ステージ3のゲーム</h2>
-        <p>ここにステージ3のゲーム内容を追加</p>
-    </div>
-
-    <!-- ステージ4のゲームコンテンツ -->
-    <div class="game-stage" id="stage4-content" style="display: none;">
-        <h2>ステージ4のゲーム</h2>
-        <p>ここにステージ4のゲーム内容を追加</p>
-    </div>
-
-    <!-- ステージ5のゲームコンテンツ -->
-    <div class="game-stage" id="stage5-content" style="display: none;">
-        <h2>ステージ5のゲーム</h2>
-        <p>ここにステージ5のゲーム内容を追加</p>
-    </div>
+    <!-- 動的に読み込まれるステージコンテンツのコンテナ -->
+    <div id="stageContent" class="stage-content"></div>
 
     <!-- Three.jsと関連スクリプトの読み込み -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- p5.jsと背景スクリプトの読み込み -->
+
     <script src="/js/background.js"></script>
     <script src="/js/script.js"></script>
+
+
 </body>
 </html>

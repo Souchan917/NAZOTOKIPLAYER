@@ -3,6 +3,39 @@ const jackets = document.querySelectorAll('.stage-jacket');
 let currentStageIndex = 0;
 let currentAudioElement = null; // 現在のオーディオ要素を保持
 
+
+function loadStageContent(stageIndex) {
+    // ステージごとのファイル名を設定
+    const stageFiles = [
+        'stage1.html',
+        'stage2.html',
+        'stage3.html',
+        'stage4.html',
+        'stage5.html'
+    ];
+
+    // 既存のコンテンツをクリア
+    const contentContainer = document.getElementById('stageContent');
+    contentContainer.innerHTML = '';
+
+    // コンテンツをロード
+    fetch(stageFiles[stageIndex])
+        .then(response => response.text())
+        .then(html => {
+            contentContainer.innerHTML = html;
+            // 必要に応じて、読み込んだコンテンツに対する追加のスクリプトを実行
+        })
+        .catch(error => console.error('Error loading content:', error));
+}
+
+// スタートボタンのクリックイベントでステージをロード
+document.getElementById('startButton').addEventListener('click', () => {
+    loadStageContent(currentStageIndex);
+    document.querySelector('.game-container').style.display = 'none';
+    document.getElementById('stageContent').style.display = 'block';
+});
+
+
 // 曲名のリスト
 const trackList = [
     "01-Couper le vent",
@@ -11,6 +44,8 @@ const trackList = [
     "04-Refreqt",
     "05-Flip Up"
 ];
+
+
 
 // 初期ステージの表示と音楽再生
 playStageAudio(trackList[currentStageIndex]);
