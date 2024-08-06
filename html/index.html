@@ -54,33 +54,28 @@
     <!-- ステージ1のゲームコンテンツ -->
     <!-- ステージ1のゲームコンテンツ -->
     <div class="game-stage" id="stage1-content" style="display: none;">
+        <canvas id="stage1Canvas"></canvas>
         <div class="stage1-header">
             <h2>Stage 1: The Enchanted Melody</h2>
         </div>
         <div class="stage1-description">
-            <p>In this stage, players must find the hidden notes of an enchanted melody scattered across a magical landscape. Each note holds a secret that, when combined, reveals a path to the next challenge. Navigate through interactive puzzles, uncover hidden objects, and solve riddles to progress.</p>
+            <p>In this stage, players must find the hidden notes...</p>
         </div>
-        <div class="stage1-instructions">
-            <h3>Instructions:</h3>
-            <ol>
-                <li>Click on the highlighted areas to explore and interact with objects.</li>
-                <li>Use the clues provided to find the hidden notes.</li>
-                <li>Combine the notes in the correct order to form the enchanted melody.</li>
-            </ol>
-        </div>
-        <div class="stage1-puzzle">
-            <div class="puzzle-grid">
-                <!-- Placeholder for puzzle grid -->
-            </div>
-        </div>
+        <button class="backButton" onclick="goBackToHome()">ホームに戻る</button>
     </div>
-
 
     <!-- ステージ2のゲームコンテンツ -->
     <div class="game-stage" id="stage2-content" style="display: none;">
-        <h2>ステージ2のゲーム</h2>
-        <p>ここにステージ2のゲーム内容を追加</p>
+        <canvas id="stage2Canvas"></canvas>
+        <div class="stage2-header">
+            <h2>ステージ2のゲーム</h2>
+            <p>ここにステージ2のゲーム内容を追加</p>
+        </div>
+        <button class="backButton" onclick="goBackToHome()">ホームに戻る</button>
     </div>
+
+    <!-- 他のステージも同様に設定 -->
+
 
     <!-- ステージ3のゲームコンテンツ -->
     <div class="game-stage" id="stage3-content" style="display: none;">

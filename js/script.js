@@ -150,3 +150,21 @@ function stopStageAudio(audioElement) {
         fadeOutAudio(audioElement); // フェードアウト
     }
 }
+
+
+function goBackToHome() {
+    // 現在表示されているステージのコンテンツを非表示にする
+    document.querySelectorAll('.game-stage').forEach(stage => stage.style.display = 'none');
+
+    // ホーム画面を表示
+    document.querySelector('.game-container').style.display = 'block';
+
+    // 必要に応じてCSSクラスを再適用
+    const backButton = document.querySelector('.backButton');
+    if (backButton) {
+        backButton.classList.add('fixed'); // 例: 'fixed'クラスを再適用
+    }
+
+    // 音楽を停止
+    stopStageAudio(currentAudioElement);
+}
